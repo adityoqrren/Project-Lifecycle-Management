@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MakeProject">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar_login_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/makeproject_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Make your project"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/makeProject_layoutName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/makeproject_Title"
+        app:layout_constraintTop_toBottomOf="@id/makeproject_Title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/makeProject_edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textColor="@android:color/black"
+            android:textSize="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/makeProject_layoutDesc"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/makeProject_layoutName"
+        app:layout_constraintTop_toBottomOf="@id/makeProject_layoutName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/makeProject_edtDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:minHeight="96dp"
+            android:textColor="@android:color/black"
+            android:textSize="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/makeProject_invite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Invite people"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        app:layout_constraintLeft_toLeftOf="@id/makeProject_layoutDesc"
+        app:layout_constraintTop_toBottomOf="@id/makeProject_layoutDesc" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/makeProject_RV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/makeProject_invite" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/makeProject_btnInvite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="26dp"
+        android:backgroundTint="@color/colorBlueApps"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Inivite People"
+        android:textAllCaps="false"
+        android:textSize="14dp"
+        app:cornerRadius="14dp"
+        app:icon="@drawable/ic_add_white_18dp"
+        app:iconGravity="end"
+        app:layout_constraintBottom_toTopOf="@+id/btn_makeProject"
+        app:layout_constraintStart_toStartOf="@+id/btn_makeProject"
+        app:layout_constraintTop_toBottomOf="@+id/makeProject_RV"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_makeProject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorBlueApps"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Make Project"
+        android:textAllCaps="false"
+        android:textSize="16dp"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

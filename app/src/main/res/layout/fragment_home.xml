@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_home">
+
+    <TextView
+        android:id="@+id/fhome_bigTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Proyek anda"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recviewBeranda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fhome_bigTitle"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/icon_plm_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="36dp"
+        android:src="@drawable/ic_plm_logo"
+        app:layout_constraintBottom_toTopOf="@+id/text_no_project_1"
+        app:layout_constraintEnd_toEndOf="@+id/text_no_project_1"
+        app:layout_constraintStart_toStartOf="@+id/text_no_project_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.917" />
+
+    <TextView
+        android:id="@+id/text_no_project_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Belum ada proyek"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@+id/text_no_project_2"
+        app:layout_constraintEnd_toEndOf="@+id/text_no_project_2"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/text_no_project_2" />
+
+    <TextView
+        android:id="@+id/text_no_project_2"
+        android:layout_width="308dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="308dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="Buat Proyek Lifecycle Management team anda atau dapatkan undangan proyek lifecycle management dari team anda"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/homeFAB"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="72dp"
+        android:elevation="6dp"
+        android:src="@drawable/ic_create_24px"
+        app:backgroundTint="@color/colorBlueApps"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_to_make_project"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/ic_add_white_18dp"
+        app:backgroundTint="@android:color/white"
+        app:fabCustomSize="@dimen/for_mini_fab"
+        app:layout_constraintBottom_toTopOf="@+id/homeFAB"
+        app:layout_constraintEnd_toEndOf="@+id/homeFAB"
+        app:layout_constraintStart_toStartOf="@+id/homeFAB"
+        android:elevation="6dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
