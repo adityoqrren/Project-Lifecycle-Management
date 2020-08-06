@@ -14,3 +14,4 @@
 .cxx
 /app/src/main/res/layout/activity_launcher.xml
 /app/src/main/java/Api/ApiClient.kt
+'.idea' 
