@@ -13,8 +13,14 @@ class Launcher : AppCompatActivity() {
         setContentView(R.layout.activity_launcher)
 
         Handler().postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            val userPreferences = UserPreferences(this)
+            if(userPreferences.getUser()!=null){
+                val intent= Intent(this, Home::class.java)
+                startActivity(intent)
+            }else {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
             finish()
         },SPLASH_SCREEN)
     }

@@ -1,4 +1,4 @@
-package id.interconnect.projectlifecyclemanagement
+package id.interconnect.projectlifecyclemanagement.uicomponent
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -9,13 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.DialogFragment
+import id.interconnect.projectlifecyclemanagement.R
 import kotlinx.android.synthetic.main.dialog_invite_member.view.*
 import java.lang.ClassCastException
 
 class MakeProjectDialogFragment : DialogFragment() {
     lateinit var name:String
     lateinit var role:String
-    private lateinit var myDialogListener:MyDialogListener
+    private lateinit var myDialogListener: MyDialogListener
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,8 +34,9 @@ class MakeProjectDialogFragment : DialogFragment() {
         val view = inflater.inflate(R.layout.dialog_invite_member, null)
 
         builder.setView(view)
-        val roleDropdown = arrayOf("role 1","role 2","role 3")
-        val adapter = ArrayAdapter<String>(activity!!, R.layout.dropdown_menu_popup_item, roleDropdown)
+        val roleDropdown = arrayOf("Manager","Developer","Client")
+        val adapter = ArrayAdapter<String>(activity!!,
+            R.layout.dropdown_menu_popup_item, roleDropdown)
         view.dialog_role_dropdown.setAdapter(adapter)
         view.dialog_btn_invite.setOnClickListener{
 //            Log.d("CEK INI","CHECKED")
@@ -60,7 +63,11 @@ class MakeProjectDialogFragment : DialogFragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         try {
-            myDialogListener = context as MyDialogListener
+            if(targetFragment != null) {
+                myDialogListener = targetFragment as MyDialogListener
+            }else{
+                myDialogListener = context as MyDialogListener
+            }
         }catch (e : ClassCastException){
             throw ClassCastException(context.toString() + "must implement myDialogListener")
         }

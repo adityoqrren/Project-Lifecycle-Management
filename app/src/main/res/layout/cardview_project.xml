@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView
     android:id="@+id/single_cardview_proyek"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="82dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
-    android:elevation="8dp"
+    android:elevation="4dp"
     android:layout_marginTop="8dp"
     android:layout_marginEnd="16dp"
     android:layout_marginStart="16dp"
@@ -25,11 +25,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Proyek KP PLM"
+            android:text="@string/example_title_project"
             android:fontFamily="@font/poppins_bold"
             android:textSize="16sp"
             android:textColor="@android:color/black"
-            app:layout_constraintEnd_toStartOf="@+id/dialog_invite_btnDelete"
+            app:layout_constraintEnd_toStartOf="@+id/img_proyek_goto"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,7 +43,7 @@
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/poppins_light"
             android:maxLines="1"
-            android:text="Proyek KP PLM ini adalah proyek yang menggunakan sesuatu"
+            android:text="@string/sample_description"
             android:textColor="@android:color/black"
             android:textSize="15sp"
             android:ellipsize="end"
@@ -52,22 +52,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/card_project_title" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_proyek_goto"
-            style="@style/Widget.MaterialComponents.Button.TextButton"
+        <ImageView
+            android:id="@+id/img_proyek_goto"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_gravity="end"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="@android:color/transparent"
             android:elevation="0dp"
-            app:icon="@drawable/ic_navigate_next_black_24dp"
-            app:iconGravity="textStart"
-            app:iconTint="@android:color/black"
+            android:src="@drawable/ic_navigate_next_black_24dp"
+            android:contentDescription="@string/see_full"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:iconPadding="0dp"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

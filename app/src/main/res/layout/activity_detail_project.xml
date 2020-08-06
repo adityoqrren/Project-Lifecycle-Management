@@ -1,36 +1,429 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DetailProject"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/id_toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:backgroundTint="@android:color/white"
+        android:theme="@style/ThemeOverlay.AppCompat.Light">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/detail_toolbar_elevated"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:elevation="5dp"
-            app:layout_scrollFlags="scroll|enterAlways"/>
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:theme="@style/ThemeActionBar"
+            android:elevation="4dp"/>
+    </com.google.android.material.appbar.AppBarLayout>
+    <View
+        android:id="@+id/lif_dark_clicked"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:alpha="0.8"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="2dp"
+        />
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/fdetail_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/id_toolbar_container">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/detail_tabs"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/fdetail_content_appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            app:layout_scrollFlags="scroll"/>
-    </com.google.android.material.appbar.AppBarLayout>
+            android:theme="@style/ThemeOverlay.AppCompat.Light">
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlways">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/detail_viewPager"
-        android:layout_width="match_parent"
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/detail_tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/white"
+                    app:tabMaxWidth="150dp"
+                    app:tabMinWidth="150dp"
+                    android:elevation="0dp"
+                    app:tabTextAppearance="@style/CustomTabs"
+                    app:tabIndicatorColor="@color/colorIndicator"
+                    app:tabTextColor="@android:color/black"/>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/detail_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+<!--    <com.getbase.floatingactionbutton.FloatingActionsMenu-->
+<!--        android:id="@+id/lifecycle_main_FAB"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        app:fab_addButtonColorNormal="@color/colorBlueApps">-->
+<!--        <com.getbase.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/btn_to_sequence"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:fab_size="mini"-->
+<!--            android:backgroundTint="@android:color/white"-->
+<!--            app:fab_icon="@layout/add_desc_item"-->
+<!--            app:fab_title="Sequence Diagram"/>-->
+<!--    </com.getbase.floatingactionbutton.FloatingActionsMenu>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="10dp"
+        android:elevation="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--        <LinearLayout-->
+<!--            android:id="@+id/fab_archi"-->
+<!--            android:visibility="invisible"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/fab_usecase"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:layout_marginEnd="10dp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/btn_title_archi"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginEnd="23dp"-->
+<!--                android:elevation="6dp"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:text="Architecture"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="16sp"-->
+<!--                android:visibility="visible"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/btn_to_archi"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/btn_to_archi" />-->
+
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/btn_to_archi"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:elevation="6dp"-->
+<!--                android:src="@drawable/ic_add_white_18dp"-->
+<!--                android:visibility="visible"-->
+<!--                app:backgroundTint="@android:color/white"-->
+<!--                app:fabSize="mini"-->
+<!--                app:pressedTranslationZ="12dp" />-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/fab_usecase"-->
+<!--            android:visibility="invisible"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/lifecycle_main_FAB"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/lifecycle_main_FAB"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:layout_marginEnd="10dp">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/btn_title_usecase"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginEnd="23dp"-->
+<!--                android:elevation="6dp"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:text="Architecture"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="16sp"-->
+<!--                android:visibility="visible"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/btn_to_archi"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/btn_to_archi" />-->
+
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/btn_to_usecase"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:elevation="6dp"-->
+<!--                android:src="@drawable/ic_add_white_18dp"-->
+<!--                android:visibility="visible"-->
+<!--                app:backgroundTint="@android:color/white"-->
+<!--                app:fabSize="mini"-->
+<!--                app:pressedTranslationZ="12dp" />-->
+<!--        </LinearLayout>-->
+
+        <TextView
+            android:id="@+id/btn_title_archi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:elevation="6dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/architecture"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_to_archi"
+            app:layout_constraintEnd_toStartOf="@+id/btn_to_archi"
+            app:layout_constraintTop_toTopOf="@+id/btn_to_archi" />
+
+        <TextView
+            android:id="@+id/btn_title_erd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/entity_relationship_diagram"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_to_erd"
+            app:layout_constraintEnd_toStartOf="@+id/btn_to_erd"
+            app:layout_constraintTop_toTopOf="@+id/btn_to_erd" />
+
+        <TextView
+            android:id="@+id/btn_title_daflow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/data_flow"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_to_daflow"
+            app:layout_constraintEnd_toStartOf="@+id/btn_to_daflow"
+            app:layout_constraintTop_toTopOf="@+id/btn_to_daflow" />
+
+        <TextView
+            android:id="@+id/btn_title_usecase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/usecase"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_to_usecase"
+            app:layout_constraintEnd_toStartOf="@+id/btn_to_usecase"
+            app:layout_constraintTop_toTopOf="@+id/btn_to_usecase" />
+
+        <TextView
+            android:id="@+id/btn_title_scenario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/scenario_test"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_to_scenario"
+            app:layout_constraintEnd_toStartOf="@+id/btn_to_scenario"
+            app:layout_constraintTop_toTopOf="@+id/btn_to_scenario" />
+
+        <TextView
+            android:id="@+id/btn_title_daflowstruc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/data_flow_structure"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_to_daflowstruc"
+            app:layout_constraintEnd_toStartOf="@+id/btn_to_daflowstruc"
+            app:layout_constraintTop_toTopOf="@+id/btn_to_daflowstruc" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_to_archi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:elevation="6dp"
+            android:src="@drawable/ic_add_white_18dp"
+            android:visibility="invisible"
+            app:backgroundTint="@android:color/white"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@id/btn_to_usecase"
+            app:layout_constraintEnd_toEndOf="@id/btn_to_usecase"
+            app:layout_constraintStart_toStartOf="@id/btn_to_usecase"
+            app:pressedTranslationZ="12dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_to_usecase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:elevation="6dp"
+            android:src="@drawable/ic_add_white_18dp"
+            android:visibility="invisible"
+            app:backgroundTint="@android:color/white"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@id/btn_to_daflow"
+            app:layout_constraintEnd_toEndOf="@id/btn_to_daflow"
+            app:layout_constraintStart_toStartOf="@id/btn_to_daflow"
+            app:pressedTranslationZ="12dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_to_daflow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:elevation="6dp"
+            android:src="@drawable/ic_add_white_18dp"
+            android:visibility="invisible"
+            app:backgroundTint="@android:color/white"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@id/btn_to_erd"
+            app:layout_constraintEnd_toEndOf="@id/btn_to_erd"
+            app:layout_constraintStart_toStartOf="@id/btn_to_erd"
+            app:pressedTranslationZ="12dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_to_erd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:elevation="6dp"
+            android:src="@drawable/ic_add_white_18dp"
+            android:visibility="invisible"
+            app:backgroundTint="@android:color/white"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@id/btn_to_daflowstruc"
+            app:layout_constraintEnd_toEndOf="@id/btn_to_daflowstruc"
+            app:layout_constraintStart_toStartOf="@id/btn_to_daflowstruc"
+            app:pressedTranslationZ="12dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_to_daflowstruc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:elevation="6dp"
+            android:src="@drawable/ic_add_white_18dp"
+            android:visibility="invisible"
+            app:backgroundTint="@android:color/white"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@id/btn_to_scenario"
+            app:layout_constraintEnd_toEndOf="@id/btn_to_scenario"
+            app:layout_constraintStart_toStartOf="@id/btn_to_scenario"
+            app:pressedTranslationZ="12dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_to_scenario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:elevation="6dp"
+            android:src="@drawable/ic_add_white_18dp"
+            android:visibility="invisible"
+            app:backgroundTint="@android:color/white"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@id/btn_to_journey"
+            app:layout_constraintEnd_toEndOf="@id/btn_to_journey"
+            app:layout_constraintStart_toStartOf="@id/btn_to_journey"
+            app:pressedTranslationZ="12dp" />
+
+        <TextView
+            android:id="@+id/btn_title_journey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/user_journey"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            android:elevation="6dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_to_journey"
+            app:layout_constraintEnd_toStartOf="@+id/btn_to_journey"
+            app:layout_constraintTop_toTopOf="@+id/btn_to_journey" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_to_journey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_add_white_18dp"
+            app:backgroundTint="@android:color/white"
+            app:fabSize="mini"
+            android:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/btn_to_sequence"
+            app:layout_constraintEnd_toEndOf="@id/btn_to_sequence"
+            app:layout_constraintStart_toStartOf="@id/btn_to_sequence"/>
+
+        <TextView
+            android:id="@+id/btn_title_sequence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:elevation="6dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/sequence_diagram"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_to_sequence"
+            app:layout_constraintEnd_toStartOf="@+id/btn_to_sequence"
+            app:layout_constraintTop_toTopOf="@+id/btn_to_sequence" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_to_sequence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_add_white_18dp"
+            app:backgroundTint="@android:color/white"
+            app:fabSize="mini"
+            android:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/lifecycle_main_FAB"
+            app:layout_constraintEnd_toEndOf="@id/lifecycle_main_FAB"
+            app:layout_constraintStart_toStartOf="@id/lifecycle_main_FAB"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/lifecycle_main_FAB"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="end|bottom"
+            android:elevation="6dp"
+            android:src="@drawable/ic_create_24px"
+            app:backgroundTint="@color/colorBlueApps"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@android:color/white" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

@@ -1,9 +1,11 @@
-package id.interconnect.projectlifecyclemanagement
+package id.interconnect.projectlifecyclemanagement.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import id.interconnect.projectlifecyclemanagement.dataclass.Member
+import id.interconnect.projectlifecyclemanagement.R
 import kotlinx.android.synthetic.main.cardview_item.view.*
 
 class MemberRVAdapter(val onclikInterface : itemOnClick) : RecyclerView.Adapter<MemberRVAdapter.MyViewHolder>() {
@@ -18,7 +20,7 @@ class MemberRVAdapter(val onclikInterface : itemOnClick) : RecyclerView.Adapter<
         fun bind(member: Member){
             with(itemView){
                 card_memberName.text = member.name
-                card_memberRole.text = member.role
+                card_memberRole.text = member.position
                 dialog_invite_btnDelete.setOnClickListener {
                     onclikInterface.onclickcancel(member)
                 }

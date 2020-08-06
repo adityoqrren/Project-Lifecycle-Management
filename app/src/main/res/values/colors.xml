@@ -4,4 +4,9 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorBlueApps">#4f4ae2</color>
+    <color name="colorButtonGreen">#23AE7A</color>
+    <color name="colorButtonGrey">#8F8F8F</color>
+    <color name="colorButtonRed">#FF5656</color>
+    <color name="colorIndicator">#46C7EB</color>
+    <color name="colorOrangeApp">#FF6C37</color>
 </resources>

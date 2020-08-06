@@ -1,29 +1,29 @@
-package id.interconnect.projectlifecyclemanagement
+package id.interconnect.projectlifecyclemanagement.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import id.interconnect.projectlifecyclemanagement.dataclass.Project
+import id.interconnect.projectlifecyclemanagement.R
+import id.interconnect.projectlifecyclemanagement.dataclass.UserLoginProjects
 import kotlinx.android.synthetic.main.cardview_project.view.*
 
 class ProjectRVAdapter(val itemOnClick: ItemOnClick) : RecyclerView.Adapter<ProjectRVAdapter.ProyekRVViewHolder>() {
-    private var listProyek =  ArrayList<Project>()
+    private var listProyek =  ArrayList<UserLoginProjects>()
 
-    fun setData(listProject : ArrayList<Project>){
+    fun setData(listProject : ArrayList<UserLoginProjects>){
         this.listProyek = listProject
         notifyDataSetChanged()
     }
 
     inner class ProyekRVViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bind(project: Project){
+        fun bind(userLoginProjects: UserLoginProjects){
             with(itemView){
-                card_project_title.text = project.title
-                card_project_desc.text = project.description
-                btn_proyek_goto.setOnClickListener{
-                    itemOnClick.onClickNext(project)
-                }
+                card_project_title.text = userLoginProjects.project.project_name
+                card_project_desc.text = userLoginProjects.project.id_project
                 single_cardview_proyek.setOnClickListener {
-                    itemOnClick.onClickCard(project)
+                    itemOnClick.onClickNext(userLoginProjects)
                 }
             }
         }
@@ -44,7 +44,6 @@ class ProjectRVAdapter(val itemOnClick: ItemOnClick) : RecyclerView.Adapter<Proj
     }
 
     interface ItemOnClick{
-        fun onClickCard(project: Project)
-        fun onClickNext(project: Project)
+        fun onClickNext(userLoginProjects: UserLoginProjects)
     }
 }

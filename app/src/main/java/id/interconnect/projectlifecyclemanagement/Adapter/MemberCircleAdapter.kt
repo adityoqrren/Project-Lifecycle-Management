@@ -1,14 +1,33 @@
-package id.interconnect.projectlifecyclemanagement
+package id.interconnect.projectlifecyclemanagement.Adapter
 
+import android.graphics.Color
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import id.interconnect.projectlifecyclemanagement.R
+import id.interconnect.projectlifecyclemanagement.dataclass.Member
 import kotlinx.android.synthetic.main.team_member_item.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MemberCircleAdapter : RecyclerView.Adapter<MemberCircleAdapter.MemberCircleVH>() {
     private var ListMember = ArrayList<Member>()
+    val colors = arrayListOf<String>(
+        "#5E97F6",
+        "#9CCC65",
+        "#FF8A65",
+        "#9E9E9E",
+        "#9FA8DA",
+        "#90A4AE",
+        "#AED581",
+        "#F6BF26",
+        "#FFA726",
+        "#4DD0E1",
+        "#BA68C8",
+        "#A1887F"
+    )
 
     inner class MemberCircleVH(itemView : View) : RecyclerView.ViewHolder(itemView){
         fun bind(member: Member){
@@ -24,6 +43,9 @@ class MemberCircleAdapter : RecyclerView.Adapter<MemberCircleAdapter.MemberCircl
                     }
                 }
                 team_member_initial.text = initial_name
+                val r = Random()
+                val i1: Int = r.nextInt(11 - 0) + 0
+                team_member_initial.background.setTint(Color.parseColor(colors.get(i1)))
             }
         }
     }

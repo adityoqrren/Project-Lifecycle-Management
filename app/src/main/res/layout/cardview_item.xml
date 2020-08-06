@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-    <androidx.cardview.widget.CardView
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="82dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
-    android:elevation="8dp"
+    android:elevation="4dp"
     android:layout_marginTop="8dp"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
@@ -26,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="Adityo Aji Pambudi"
+            android:text="@string/example_name"
             android:fontFamily="@font/poppins"
             android:textSize="16sp"
             android:textColor="@android:color/black"
@@ -41,7 +40,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/poppins_light"
-            android:text="Apapun"
+            android:text="@string/examplerole"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"

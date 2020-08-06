@@ -2,8 +2,11 @@ package id.interconnect.projectlifecyclemanagement
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import id.interconnect.projectlifecyclemanagement.lifecycle.MyViewModel
 
 class ForgotPassword : AppCompatActivity() {
+
+//    private lateinit var myViewModel: MyViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,4 +17,6 @@ class ForgotPassword : AppCompatActivity() {
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_navigate_before_black_24dp)
         supportActionBar?.setDisplayShowTitleEnabled(false)
     }
+
+
 }

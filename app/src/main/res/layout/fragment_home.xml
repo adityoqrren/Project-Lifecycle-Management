@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="?attr/actionBarSize"
     tools:context=".fragment_home">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Proyek anda"
+        android:text="@string/your_project"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:visibility="gone"
@@ -42,6 +43,7 @@
         android:layout_marginTop="150dp"
         android:layout_marginBottom="36dp"
         android:src="@drawable/ic_plm_logo"
+        android:contentDescription="@string/plm_logo"
         app:layout_constraintBottom_toTopOf="@+id/text_no_project_1"
         app:layout_constraintEnd_toEndOf="@+id/text_no_project_1"
         app:layout_constraintStart_toStartOf="@+id/text_no_project_1"
@@ -54,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Belum ada proyek"
+        android:text="@string/no_project"
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="normal"
@@ -69,9 +71,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="308dp"
+        android:layout_marginBottom="158dp"
         android:fontFamily="@font/poppins_light"
-        android:text="Buat Proyek Lifecycle Management team anda atau dapatkan undangan proyek lifecycle management dari team anda"
+        android:text="@string/home_longtext_no_project"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="16sp"
@@ -80,30 +82,16 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/homeFAB"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="72dp"
-        android:elevation="6dp"
-        android:src="@drawable/ic_create_24px"
-        app:backgroundTint="@color/colorBlueApps"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@android:color/white" />
+<!--    <com.getbase.floatingactionbutton.FloatingActionsMenu-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        app:fab_addButtonColorNormal="@color/colorBlueApps"-->
+<!--        app:fab_addButtonColorPressed="@color/colorButtonRed"-->
+<!--        app:fab_addButtonPlusIconColor="@android:color/white"/>-->
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_to_make_project"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="15dp"
-        android:src="@drawable/ic_add_white_18dp"
-        app:backgroundTint="@android:color/white"
-        app:fabCustomSize="@dimen/for_mini_fab"
-        app:layout_constraintBottom_toTopOf="@+id/homeFAB"
-        app:layout_constraintEnd_toEndOf="@+id/homeFAB"
-        app:layout_constraintStart_toStartOf="@+id/homeFAB"
-        android:elevation="6dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,9 +13,10 @@
         android:layout_marginStart="130dp"
         android:layout_marginTop="220dp"
         android:layout_marginEnd="130dp"
+        android:contentDescription="@string/digital_creative_capital"
         android:src="@drawable/ic_plm_logo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,28 +24,30 @@
         android:id="@+id/from"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="228dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/poppins_light"
-        android:text="from"
+        android:text="@string/from"
         android:textColor="@android:color/black"
-        android:textSize="16dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/digital_creative_splash"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_splash_screen" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_splash_screen"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/digital_creative_splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="36dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="DIGITAL CREATIVE"
+        android:text="@string/digital_creative_capital"
         android:textColor="@android:color/black"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/from"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="@+id/from"
-        app:layout_constraintTop_toBottomOf="@+id/from" />
+        app:layout_constraintStart_toStartOf="@+id/from" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

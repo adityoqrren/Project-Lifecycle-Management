@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="26dp"
             android:fontFamily="@font/poppins_bold"
-            android:text="Invite Member"
+            android:text="@string/invite_member"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="normal" />
@@ -44,8 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
-            android:layout_marginBottom="26dp"
-            android:hint="Nama">
+            android:layout_marginBottom="16dp"
+            android:hint="@string/name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/dialog_invite_edtname"
@@ -62,8 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
-            android:layout_marginBottom="26dp"
-            android:hint="Role">
+            android:layout_marginBottom="16dp"
+            android:hint="@string/role">
 
             <AutoCompleteTextView
                 android:id="@+id/dialog_role_dropdown"
@@ -81,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="26dp"
-            android:text="Undang"
+            android:text="@string/invite"
             android:textAllCaps="false"
             android:textStyle="bold"
             android:textSize="16sp"

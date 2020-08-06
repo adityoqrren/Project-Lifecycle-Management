@@ -12,7 +12,7 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/toolbar_login_register"
+        layout="@layout/toolbar_blank"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,9 +24,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Make your project"
+        android:text="@string/make_your_project"
         android:textColor="@android:color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/include" />
@@ -39,7 +39,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="16dp"
-        android:hint="Name"
+        android:hint="@string/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/makeproject_Title"
         app:layout_constraintTop_toBottomOf="@id/makeproject_Title">
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
             android:textColor="@android:color/black"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -61,7 +61,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="16dp"
-        android:hint="Description"
+        android:hint="@string/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/makeProject_layoutName"
         app:layout_constraintTop_toBottomOf="@id/makeProject_layoutName">
@@ -70,11 +70,13 @@
             android:id="@+id/makeProject_edtDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="top|start"
             android:fontFamily="@font/poppins"
             android:minHeight="96dp"
             android:textColor="@android:color/black"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/makeProject_invite"
@@ -82,9 +84,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Invite people"
+        android:text="@string/invite_people"
         android:textColor="@android:color/black"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="normal"
         app:layout_constraintLeft_toLeftOf="@id/makeProject_layoutDesc"
         app:layout_constraintTop_toBottomOf="@id/makeProject_layoutDesc" />
@@ -94,24 +96,24 @@
         android:id="@+id/makeProject_RV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/makeProject_invite" />
+        app:layout_constraintTop_toBottomOf="@+id/makeProject_invite"
+        tools:visibility="visible" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/makeProject_btnInvite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="26dp"
         android:layout_marginBottom="26dp"
         android:backgroundTint="@color/colorBlueApps"
         android:fontFamily="@font/poppins_medium"
-        android:text="Inivite People"
+        android:text="@string/invite_people"
         android:textAllCaps="false"
-        android:textSize="14dp"
-        app:cornerRadius="14dp"
+        android:textSize="14sp"
+        app:cornerRadius="15dp"
         app:icon="@drawable/ic_add_white_18dp"
         app:iconGravity="end"
         app:layout_constraintBottom_toTopOf="@+id/btn_makeProject"
@@ -128,9 +130,9 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/colorBlueApps"
         android:fontFamily="@font/poppins_bold"
-        android:text="Make Project"
+        android:text="@string/make_project"
         android:textAllCaps="false"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

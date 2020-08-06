@@ -8,7 +8,7 @@
 
     <include
         android:id="@+id/include"
-        layout="@layout/toolbar_login_register"
+        layout="@layout/toolbar_blank"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Register new account!"
+        android:text="@string/register_new_account"
         android:textColor="@android:color/black"
         android:textSize="26sp"
         android:textStyle="normal"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins"
-        android:text="Fill form below"
+        android:text="@string/fill_form_below"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/register_BigTitle"
@@ -57,15 +57,38 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:hint="Email"
+        android:layout_marginTop="26dp"
+        android:hint="@string/email"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/register_layoutName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/register_edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/register_layoutName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:hint="@string/name"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/register_SupportTitle">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_edtEmail"
+            android:id="@+id/register_edtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
@@ -81,7 +104,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
-        android:hint="Password"
+        android:hint="@string/password"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
@@ -99,43 +122,43 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_layoutRole"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:backgroundTint="@android:color/transparent"
-        android:hint="Role"
-        app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/register_layoutPassword">
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        android:id="@+id/register_layoutRole"-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="26dp"-->
+<!--        android:backgroundTint="@android:color/transparent"-->
+<!--        android:hint="Role"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/guideline"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/guideline3"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/register_layoutPassword">-->
 
-        <AutoCompleteTextView
-            android:id="@+id/register_edtRole"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"
-            android:textColor="@android:color/black"
-            android:textSize="16sp" />
+<!--        <AutoCompleteTextView-->
+<!--            android:id="@+id/register_edtRole"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:inputType="none"-->
+<!--            android:textColor="@android:color/black"-->
+<!--            android:textSize="16sp" />-->
 
-    </com.google.android.material.textfield.TextInputLayout>
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/regisiter_btnLogin"
+        android:id="@+id/register_btnRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:backgroundTint="@color/colorBlueApps"
         android:fontFamily="@font/poppins_bold"
-        android:text="Masuk"
+        android:text="@string/register_account"
         android:textAllCaps="false"
         android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/register_layoutRole" />
+        app:layout_constraintTop_toBottomOf="@+id/register_layoutPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
