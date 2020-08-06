@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MakeTask">
+
+    <include
+        android:id="@+id/include_toolbar"
+        layout="@layout/toolbar_blank" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_maketask_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_maketask_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_maketask_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <TextView
+        android:id="@+id/maketask_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/make_task"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
+        app:layout_constraintTop_toBottomOf="@id/include_toolbar" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/maketask_name"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:hint="@string/name"
+        app:boxStrokeColor="@android:color/black"
+        app:hintTextColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
+        app:layout_constraintTop_toBottomOf="@id/maketask_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/maketask_name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:inputType="text"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/maketask_weight"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/weight_1_100"
+        app:boxStrokeColor="@android:color/black"
+        app:hintTextColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
+        app:layout_constraintTop_toBottomOf="@id/maketask_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/maketask_weight_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:inputType="number"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/maketask_startDate"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/start_date"
+        app:boxStrokeColor="@android:color/black"
+        app:hintTextColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_maketask_center"
+        app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
+        app:layout_constraintTop_toBottomOf="@id/maketask_weight"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_baseline_date_range_24"
+        app:endIconTint="@android:color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/maketask_startDate_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:cursorVisible="false"
+            android:fontFamily="@font/poppins"
+            android:inputType="none|textNoSuggestions"
+            android:textIsSelectable="true"
+            android:focusable="false"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/maketask_endDate"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:hint="@string/end_date"
+        app:boxStrokeColor="@android:color/black"
+        app:hintTextColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/maketask_startDate"
+        app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_maketask_center"
+        app:layout_constraintTop_toTopOf="@+id/maketask_startDate"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_baseline_date_range_24"
+        app:endIconTint="@android:color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/maketask_endDate_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:cursorVisible="false"
+            android:inputType="none|textNoSuggestions"
+            android:textIsSelectable="true"
+            android:focusable="false"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/maketask_dueDate"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/due_date"
+        app:boxStrokeColor="@android:color/black"
+        app:hintTextColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline_maketask_center"
+        app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
+        app:layout_constraintTop_toBottomOf="@id/maketask_startDate"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_baseline_date_range_24"
+        app:endIconTint="@android:color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/maketask_dueDate_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:inputType="none|textNoSuggestions"
+            android:cursorVisible="false"
+            android:textIsSelectable="true"
+            android:focusable="false"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/maketask_member"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/member"
+        app:boxStrokeColor="@android:color/black"
+        app:hintTextColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
+        app:layout_constraintTop_toBottomOf="@id/maketask_dueDate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/maketask_member_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:inputType="number"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/maketask_note"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/note"
+        app:boxStrokeColor="@android:color/black"
+        app:hintTextColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
+        app:layout_constraintTop_toBottomOf="@id/maketask_member">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/maketask_note_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:inputType="number"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/maketask_btnBuat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorBlueApps"
+        android:textAllCaps="false"
+        android:text="@string/make"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_bold"
+        app:cornerRadius="6dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/maketask_note"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
+        app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
