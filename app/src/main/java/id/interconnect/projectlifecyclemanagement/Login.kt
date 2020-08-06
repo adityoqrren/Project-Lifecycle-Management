@@ -48,14 +48,14 @@ class Login : AppCompatActivity() {
                         is Result.Success -> {
                             //data message const val
                             if(dataReceived.data.status == TextIndicatorAPI.textSuccess ){
-                                val userPreferences = UserPreferences(this)
+//                                val userPreferences = UserPreferences(this)
                                 //pindahin ke class baru dan pakai context.BASE
-                                userPreferences.setUser(dataReceived.data.data.email)
-//                                Toast.makeText(this,"email: ${dataReceived.data.data.email}",Toast.LENGTH_LONG).show()
-//                                Log.d("print data","${dataReceived.data.data}")
-                                val intent = Intent(this,Home::class.java)
-                                intent.putExtra("dataProject",dataReceived.data.data)
-                                startActivity(intent)
+//                                userPreferences.setUser(dataReceived.data.data.email)
+                                Toast.makeText(this,"email: ${dataReceived.data.data.email}",Toast.LENGTH_LONG).show()
+                                Log.d("print data","${dataReceived.data.data}")
+//                                val intent = Intent(this,Home::class.java)
+//                                intent.putExtra("dataProject",dataReceived.data.data)
+//                                startActivity(intent)
                             }else{
                                 //semua string harus ada di xml string
                                 Toast.makeText(this,"Wrong email or password",Toast.LENGTH_LONG).show()

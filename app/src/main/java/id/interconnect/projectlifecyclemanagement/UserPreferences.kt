@@ -7,7 +7,7 @@ import androidx.security.crypto.MasterKey
 
 class UserPreferences (val context: Context) {
     companion object{
-        private const val PREFS_NAME = "user_login_pref"
+//        private const val PREFS_NAME = "user_login_pref"
         private const val EMAIL_PREF = "email"
     }
 

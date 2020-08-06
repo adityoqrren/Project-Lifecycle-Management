@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.Toast
 
 class Launcher : AppCompatActivity() {
     val SPLASH_SCREEN : Long = 3000
@@ -14,11 +15,12 @@ class Launcher : AppCompatActivity() {
 
         Handler().postDelayed({
             val userPreferences = UserPreferences(this)
-            if(userPreferences.getUser()!=null){
-                val intent= Intent(this, Home::class.java)
+            if(userPreferences.getUser().isNullOrEmpty()){
+                Toast.makeText(this,userPreferences.getUser(),Toast.LENGTH_LONG).show()
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }else {
-                val intent = Intent(this, MainActivity::class.java)
+                val intent= Intent(this, Home::class.java)
                 startActivity(intent)
             }
             finish()
