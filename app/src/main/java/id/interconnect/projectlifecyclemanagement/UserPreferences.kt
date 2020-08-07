@@ -2,6 +2,7 @@ package id.interconnect.projectlifecyclemanagement
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.core.content.edit
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 
@@ -23,9 +24,10 @@ class UserPreferences (val context: Context) {
     }
 
     fun setUser(user_email:String){
-        getPreferences().edit()
-        .putString(EMAIL_PREF, user_email)
-        .apply()
+        getPreferences().edit{
+            putString(EMAIL_PREF, user_email)
+        }
+
     }
 
     fun getUser() : String? = getPreferences().getString(EMAIL_PREF,"")
