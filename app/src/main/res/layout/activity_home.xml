@@ -7,9 +7,9 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Home">
+        tools:context=".HomeActivity">
         <View
-            android:id="@+id/lif_dark_clicked"
+            android:id="@+id/home_lif_dark_clicked"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,7 +24,7 @@
             android:id="@+id/home_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_anchor="@+id/lif_dark_clicked"
+            app:layout_anchor="@+id/home_lif_dark_clicked"
             app:layout_anchorGravity="center"/>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

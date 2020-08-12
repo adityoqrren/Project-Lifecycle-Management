@@ -7,53 +7,29 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import id.interconnect.projectlifecyclemanagement.R
+import id.interconnect.projectlifecyclemanagement.dataclass.ArchitectureDescription
 import kotlinx.android.synthetic.main.add_desc_item.view.*
+import kotlinx.android.synthetic.main.description_list.view.*
 
 class DescItemAdapter : RecyclerView.Adapter<DescItemAdapter.MyViewHolder>() {
-    private var ListDesc = ArrayList<String>()
+    private var ListDesc = ArrayList<ArchitectureDescription>()
 
-//    fun setlistMember(listDesc: ArrayList<String>){
-//        this.ListDesc = listDesc
-//        notifyDataSetChanged()
-//    }
-
-    fun addListMember(listdesc: String){
-        ListDesc.add(listdesc)
+    fun setlistMember(listDesc: ArrayList<ArchitectureDescription>){
+        this.ListDesc = listDesc
         notifyDataSetChanged()
     }
 
-    fun getListMember():ArrayList<String>{
-        return ListDesc
-    }
-
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        fun bind(listdesc: String, position: Int){
+        fun bind(description: ArchitectureDescription){
             with(itemView){
-                makeArchi_itemDesc_delete.setOnClickListener {
-                    ListDesc.removeAt(position)
-                    notifyDataSetChanged()
-                }
-                makeArchi_itemDesc_edit.addTextChangedListener(object : TextWatcher{
-                    override fun afterTextChanged(p0: Editable?) {
-
-                    }
-
-                    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
-                    }
-
-                    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                        ListDesc.set(position,p0.toString())
-//                        notifyItemChanged(adapterPosition)
-                    }
-
-                })
+                desc_number.text = (adapterPosition+1).toString()
+                desc_item_text.text = description.description
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.add_desc_item,parent,false)
+        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.description_list,parent,false)
         return MyViewHolder(inflater)
     }
 
@@ -62,8 +38,6 @@ class DescItemAdapter : RecyclerView.Adapter<DescItemAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(ListDesc[position],position)
+        holder.bind(ListDesc[position])
     }
-
-
 }

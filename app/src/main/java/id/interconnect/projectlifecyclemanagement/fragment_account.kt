@@ -28,12 +28,12 @@ class fragment_account : Fragment() {
         btn_logout.setOnClickListener {
             val userPreferences = UserPreferences(context!!.applicationContext)
             userPreferences.unsetUser()
-            if(userPreferences.getUser()==null){
+            if(userPreferences.getUser().isNullOrEmpty()){
                 val intent= Intent(activity,MainActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
             }else{
-                Toast.makeText(activity,"Error",Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity,"Error ${userPreferences.getUser()}",Toast.LENGTH_SHORT).show()
             }
         }
     }

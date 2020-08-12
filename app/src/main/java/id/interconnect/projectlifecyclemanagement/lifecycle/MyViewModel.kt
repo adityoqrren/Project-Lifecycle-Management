@@ -1,7 +1,7 @@
 package id.interconnect.projectlifecyclemanagement.lifecycle
 
-import Api.ApiRepository
-import Api.Result
+import id.interconnect.projectlifecyclemanagement.Api.ApiRepository
+import id.interconnect.projectlifecyclemanagement.Api.Result
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData

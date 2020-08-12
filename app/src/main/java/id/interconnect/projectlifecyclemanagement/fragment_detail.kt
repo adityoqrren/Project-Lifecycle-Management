@@ -2,6 +2,7 @@ package id.interconnect.projectlifecyclemanagement
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ import id.interconnect.projectlifecyclemanagement.dataclass.Project
 import id.interconnect.projectlifecyclemanagement.dataclass.Timeline
 import id.interconnect.projectlifecyclemanagement.uicomponent.MakeProjectDialogFragment
 import id.interconnect.projecttimelinemanagement.TaskAdapter
+import kotlinx.android.synthetic.main.description_list.*
 import kotlinx.android.synthetic.main.fragment_detail.*
 
 
@@ -32,6 +34,7 @@ class fragment_detail : Fragment(), MakeProjectDialogFragment.MyDialogListener{
         fun newInstance(project: Project): fragment_detail{
             val fragmentDetail = fragment_detail()
             val bundle = Bundle()
+//            Log.d("Argument project",project.description)
             bundle.putParcelable(ARG_PROJECT, project)
             fragmentDetail.arguments = bundle
             return fragmentDetail
@@ -52,6 +55,12 @@ class fragment_detail : Fragment(), MakeProjectDialogFragment.MyDialogListener{
         val memberCircleAdapter = MemberCircleAdapter()
         fdetail_memberList_rv.adapter = memberCircleAdapter
         fdetail_memberList_rv.layoutManager = LinearLayoutManager(activity,RecyclerView.HORIZONTAL,false)
+
+        val taskAdapter = TaskAdapter()
+        fdetail_RV.layoutManager = LinearLayoutManager(activity)
+        fdetail_RV.adapter = taskAdapter
+
+        //dummy
         val arrayListMember = ArrayList<Member>().apply {
             this.add(
                 Member(
@@ -90,8 +99,47 @@ class fragment_detail : Fragment(), MakeProjectDialogFragment.MyDialogListener{
                 )
             )
         }
+        myTimelineList = arrayListOf(
+            Timeline(
+                "1",
+                "Iwany",
+                "Architecture",
+                "10",
+                "08/04/20",
+                "20/08/20",
+                "20/08/20",
+                "Kerjain ya!"
+            ),
+            Timeline(
+                "2",
+                "Abdi",
+                "Usecase",
+                "10",
+                "08/04/20",
+                "20/08/20",
+                "20/08/20",
+                "Kerjain ya!"
+            ),
+            Timeline(
+                "3",
+                "Lohan",
+                "Dataflow",
+                "10",
+                "08/04/20",
+                "20/08/20",
+                "20/08/20",
+                "Kerjain ya!"
+            )
+        )
+
         if(arguments!=null) {
-            memberCircleAdapter.setListMember(arrayListMember)
+            val myProject = arguments?.getParcelable<Project>(ARG_PROJECT)
+            Log.d("data","datanya $myProject")
+            if(myProject!=null){
+//                card_desc_1_tv.text = myProject.description
+                memberCircleAdapter.setListMember(arrayListMember)
+                taskAdapter.setData(myTimelineList)
+            }
         }
 
         //for expanding and collapsing description
@@ -106,49 +154,11 @@ class fragment_detail : Fragment(), MakeProjectDialogFragment.MyDialogListener{
         }
 
         fdetail_makeTask.setOnClickListener {
-            val intent = Intent(activity, MakeTask::class.java)
+            val intent = Intent(activity, MakeTaskActivity::class.java)
             startActivity(intent)
         }
 
-        myTimelineList = arrayListOf(
-            Timeline(
-                "1",
-                "1",
-                "Architecture",
-                "10",
-                "08/04/20",
-                "20/08/20",
-                "20/08/20",
-                "Kerjain ya!"
-            ),
-            Timeline(
-                "2",
-                "2",
-                "Usecase",
-                "10",
-                "08/04/20",
-                "20/08/20",
-                "20/08/20",
-                "Kerjain ya!"
-            ),
-            Timeline(
-                "3",
-                "3",
-                "Dataflow",
-                "10",
-                "08/04/20",
-                "20/08/20",
-                "20/08/20",
-                "Kerjain ya!"
-            )
-        )
-
-        val taskAdapter = TaskAdapter()
-        fdetail_RV.layoutManager = LinearLayoutManager(activity)
-        fdetail_RV.adapter = taskAdapter
-        taskAdapter.setData(myTimelineList)
-
-        //masih dk bisa tambah member
+        //not yet
         fdetail_btn_tambahMember.setOnClickListener {
             val dialog = MakeProjectDialogFragment()
             dialog.setTargetFragment(this, 1)

@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View) {
         when(view){
             main_btnLogin -> {
-                val intent = Intent(this,Login::class.java)
+                val intent = Intent(this,LoginActivity::class.java)
                 startActivity(intent)
             }
             main_BtnDaftar->{
-                val intent = Intent(this, Register::class.java)
+                val intent = Intent(this, RegisterActivity::class.java)
                 startActivity(intent)
             }
         }

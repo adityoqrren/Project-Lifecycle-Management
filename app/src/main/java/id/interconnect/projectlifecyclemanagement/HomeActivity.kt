@@ -10,7 +10,7 @@ import id.interconnect.projectlifecyclemanagement.dataclass.User
 import id.interconnect.projectlifecyclemanagement.dataclass.UserLoginData
 import kotlinx.android.synthetic.main.activity_home.*
 
-class Home : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     lateinit var fragmentHome : Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,12 +18,12 @@ class Home : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         home_BottomNav.setOnNavigationItemSelectedListener(navBottom)
 
-        val dataReceived = intent.getParcelableExtra<UserLoginData>("dataProject")
-        if(dataReceived!=null){
-            fragmentHome = fragment_home.newInstance(dataReceived)
-        }else{
+//        val dataReceived = intent.getParcelableExtra<UserLoginData>("dataProject")
+//        if(dataReceived!=null){
+//            fragmentHome = fragment_home.newInstance(dataReceived)
+//        }else{
             fragmentHome = fragment_home()
-        }
+//        }
 
         addFragment(fragmentHome)
 
@@ -31,6 +31,7 @@ class Home : AppCompatActivity() {
             val intent = Intent(this, MakeProject::class.java)
             startActivity(intent)
         }
+
     }
 
     private val navBottom = BottomNavigationView.OnNavigationItemSelectedListener {

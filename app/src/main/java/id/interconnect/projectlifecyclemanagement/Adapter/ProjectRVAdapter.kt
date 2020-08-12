@@ -21,7 +21,7 @@ class ProjectRVAdapter(val itemOnClick: ItemOnClick) : RecyclerView.Adapter<Proj
         fun bind(userLoginProjects: UserLoginProjects){
             with(itemView){
                 card_project_title.text = userLoginProjects.project.project_name
-                card_project_desc.text = userLoginProjects.project.id_project
+//                card_project_desc.text = userLoginProjects.project.description
                 single_cardview_proyek.setOnClickListener {
                     itemOnClick.onClickNext(userLoginProjects)
                 }

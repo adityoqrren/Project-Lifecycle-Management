@@ -1,8 +1,7 @@
 package id.interconnect.projectlifecyclemanagement
 
-import Api.Result
-import Api.TextIndicatorAPI
-import android.content.Context
+import id.interconnect.projectlifecyclemanagement.Api.Result
+import id.interconnect.projectlifecyclemanagement.Api.TextIndicatorAPI
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import id.interconnect.projectlifecyclemanagement.lifecycle.MyViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
-class Login : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private lateinit var myViewModel: MyViewModel
 
@@ -27,7 +26,7 @@ class Login : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
         login_forgotPassword.setOnClickListener{
-            val intent = Intent(this,ForgotPassword::class.java)
+            val intent = Intent(this,ForgotPasswordActivity::class.java)
             startActivity(intent)
         }
 
@@ -48,21 +47,24 @@ class Login : AppCompatActivity() {
                         is Result.Success -> {
                             //data message const val
                             if(dataReceived.data.status == TextIndicatorAPI.textSuccess ){
-//                                val userPreferences = UserPreferences(this)
+                                val userPreferences = UserPreferences(this)
                                 //pindahin ke class baru dan pakai context.BASE
-//                                userPreferences.setUser(dataReceived.data.data.email)
-                                Toast.makeText(this,"email: ${dataReceived.data.data.email}",Toast.LENGTH_LONG).show()
+                                userPreferences.setUser(email,password)
                                 Log.d("print data","${dataReceived.data.data}")
-//                                val intent = Intent(this,Home::class.java)
+//                                Toast.makeText(this,"email : ${userPreferences.getUser()} password: ${userPreferences.getPass()}", Toast.LENGTH_SHORT).show()
+//                                Log.d("user preferences","email : ${userPreferences.getUser()} password: ${userPreferences.getPass()}")
+                                val intent = Intent(this,HomeActivity::class.java)
 //                                intent.putExtra("dataProject",dataReceived.data.data)
-//                                startActivity(intent)
+                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                                startActivity(intent)
                             }else{
                                 //semua string harus ada di xml string
+                                Log.d("print data","status: ${dataReceived.data.status}")
                                 Toast.makeText(this,"Wrong email or password",Toast.LENGTH_LONG).show()
                             }
                         }
                         is Result.Error -> {
-                            Toast.makeText(this,"There is a problem. Wait a moment later.",Toast.LENGTH_LONG).show()
+                            Toast.makeText(this,TextIndicatorAPI.textServerProblem,Toast.LENGTH_LONG).show()
                         }
                     }
                 })

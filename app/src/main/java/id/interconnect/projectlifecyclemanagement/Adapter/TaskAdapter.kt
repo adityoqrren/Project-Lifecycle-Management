@@ -8,7 +8,7 @@ import com.digitalcreative.coronaapps.utils.AnimUtil
 import id.interconnect.projectlifecyclemanagement.R
 import id.interconnect.projectlifecyclemanagement.dataclass.Timeline
 import kotlinx.android.synthetic.main.content_task_fdetail.view.*
-import kotlinx.android.synthetic.main.fragment_detail_item.view.*
+import kotlinx.android.synthetic.main.cardview_detail_item.view.*
 
 class TaskAdapter : RecyclerView.Adapter<TaskAdapter.LifViewHolder>() {
     private var listTimeline =  ArrayList<Timeline>()
@@ -22,7 +22,7 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.LifViewHolder>() {
         fun bind(timeline: Timeline){
             with(itemView){
                 fdetail_taskKind.text = timeline.task
-                content_fdetail_name.text = timeline.id_member
+                fdetail_name.text = timeline.id_member
                 content_fdetail_datestart.text = timeline.start_date
                 content_fdetail_dateend.text = timeline.end_date
                 content_fdetail_datedue.text = timeline.due_date
@@ -46,7 +46,7 @@ class TaskAdapter : RecyclerView.Adapter<TaskAdapter.LifViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskAdapter.LifViewHolder {
-        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.fragment_detail_item,parent,false)
+        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.cardview_detail_item,parent,false)
         return LifViewHolder(inflater)
     }
 

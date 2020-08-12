@@ -10,6 +10,7 @@ class UserPreferences (val context: Context) {
     companion object{
 //        private const val PREFS_NAME = "user_login_pref"
         private const val EMAIL_PREF = "email"
+        private const val PASS_PREF = "password"
     }
 
     private fun getPreferences():SharedPreferences{
@@ -23,14 +24,16 @@ class UserPreferences (val context: Context) {
                 EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM)
     }
 
-    fun setUser(user_email:String){
+    fun setUser(user_email:String,user_password:String){
         getPreferences().edit{
             putString(EMAIL_PREF, user_email)
+            putString(PASS_PREF, user_password)
         }
-
     }
 
     fun getUser() : String? = getPreferences().getString(EMAIL_PREF,"")
+
+    fun getPass() : String? = getPreferences().getString(PASS_PREF,"")
 
     fun unsetUser() = getPreferences().edit().remove(EMAIL_PREF).apply()
 

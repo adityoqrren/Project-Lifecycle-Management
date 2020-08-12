@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import id.interconnect.projectlifecyclemanagement.lifecycle.MyViewModel
 
-class ForgotPassword : AppCompatActivity() {
+class ForgotPasswordActivity : AppCompatActivity() {
 
 //    private lateinit var myViewModel: MyViewModel
 

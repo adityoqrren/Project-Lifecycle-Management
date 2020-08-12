@@ -1,20 +1,18 @@
 package id.interconnect.projectlifecyclemanagement
 
 import android.content.Intent
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
 import id.interconnect.projectlifecyclemanagement.Adapter.DetailPagerAdapter
 import id.interconnect.projectlifecyclemanagement.dataclass.Project
 import kotlinx.android.synthetic.main.activity_detail_project.*
 
 
-class DetailProject : AppCompatActivity(),View.OnClickListener {
+class DetailProjectActivity : AppCompatActivity(),View.OnClickListener {
     lateinit var project: Project
     var isOpen = false
     lateinit var fabOpen : Animation
@@ -25,6 +23,7 @@ class DetailProject : AppCompatActivity(),View.OnClickListener {
         setContentView(R.layout.activity_detail_project)
 
         project = intent.getParcelableExtra("to_fragment_detail") as Project
+
         setSupportActionBar(detail_toolbar_elevated)
         supportActionBar?.title = project.project_name
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -74,7 +73,7 @@ class DetailProject : AppCompatActivity(),View.OnClickListener {
         btn_to_usecase.setOnClickListener(this)
     }
 
-    fun fabToClose(){
+    private fun fabToClose(){
         lif_dark_clicked.visibility = View.GONE
         lifecycle_main_FAB.setImageDrawable(getDrawable(R.drawable.ic_create_24px))
 
@@ -106,7 +105,7 @@ class DetailProject : AppCompatActivity(),View.OnClickListener {
         isOpen = false
     }
 
-    fun fabToOpen(){
+    private fun fabToOpen(){
         lifecycle_main_FAB.setImageDrawable(getDrawable(R.drawable.ic_close_white_24))
         lif_dark_clicked.visibility = View.VISIBLE
         btn_to_sequence.startAnimation(fabOpen)
@@ -134,7 +133,7 @@ class DetailProject : AppCompatActivity(),View.OnClickListener {
 
     override fun onClick(view: View) {
         //button for making lifecycle
-        val intent = Intent(this,MakeArchitecture::class.java)
+        val intent = Intent(this,MakeLifecycleActivity::class.java)
         when(view){
             lifecycle_main_FAB->{
                 if(isOpen){
@@ -158,6 +157,9 @@ class DetailProject : AppCompatActivity(),View.OnClickListener {
 //                val intent = Intent(this,MakeArchitecture::class.java)
                 intent.putExtra("makeIndicator","Dataflow")
                 startActivity(intent)
+                fabToClose()
+            }
+            lif_dark_clicked->{
                 fabToClose()
             }
         }

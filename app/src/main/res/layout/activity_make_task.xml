@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MakeTask">
+    tools:context=".MakeTaskActivity">
 
     <include
         android:id="@+id/include_toolbar"
@@ -51,7 +51,7 @@
         android:layout_marginTop="26dp"
         android:hint="@string/name"
         app:boxStrokeColor="@android:color/black"
-        app:hintTextColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"
         app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
         app:layout_constraintTop_toBottomOf="@id/maketask_title">
@@ -74,7 +74,7 @@
         android:layout_marginTop="16dp"
         android:hint="@string/weight_1_100"
         app:boxStrokeColor="@android:color/black"
-        app:hintTextColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"
         app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
         app:layout_constraintTop_toBottomOf="@id/maketask_name">
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/start_date"
         app:boxStrokeColor="@android:color/black"
-        app:hintTextColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_maketask_center"
@@ -129,7 +129,7 @@
         android:layout_marginStart="8dp"
         android:hint="@string/end_date"
         app:boxStrokeColor="@android:color/black"
-        app:hintTextColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintBottom_toBottomOf="@+id/maketask_startDate"
         app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"
         app:layout_constraintStart_toStartOf="@id/guideline_maketask_center"
@@ -159,7 +159,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/due_date"
         app:boxStrokeColor="@android:color/black"
-        app:hintTextColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="@id/guideline_maketask_center"
@@ -191,7 +191,7 @@
         android:layout_marginTop="16dp"
         android:hint="@string/member"
         app:boxStrokeColor="@android:color/black"
-        app:hintTextColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"
         app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
         app:layout_constraintTop_toBottomOf="@id/maketask_dueDate">
@@ -215,7 +215,7 @@
         android:layout_marginTop="16dp"
         android:hint="@string/note"
         app:boxStrokeColor="@android:color/black"
-        app:hintTextColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="@id/guideline_maketask_right"
         app:layout_constraintStart_toStartOf="@id/guideline_maketask_left"
         app:layout_constraintTop_toBottomOf="@id/maketask_member">
@@ -223,8 +223,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/maketask_note_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="96dp"
             android:fontFamily="@font/poppins"
+            android:gravity="start"
             android:inputType="number"
             android:textColor="@android:color/black"
             android:textSize="16sp" />

@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 
-class Launcher : AppCompatActivity() {
+class LauncherActivity : AppCompatActivity() {
     val SPLASH_SCREEN : Long = 3000
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,11 +16,10 @@ class Launcher : AppCompatActivity() {
         Handler().postDelayed({
             val userPreferences = UserPreferences(this)
             if(userPreferences.getUser().isNullOrEmpty()){
-                Toast.makeText(this,userPreferences.getUser(),Toast.LENGTH_LONG).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }else {
-                val intent= Intent(this, Home::class.java)
+                val intent= Intent(this, HomeActivity::class.java)
                 startActivity(intent)
             }
             finish()

@@ -15,25 +15,25 @@
         <activity android:name=".DataflowActivity"></activity>
         <activity android:name=".UsecaseActivity" />
         <activity android:name=".PageLifecycle" />
-        <activity android:name=".MakeArchitecture" />
-        <activity android:name=".MakeTask" />
+        <activity android:name=".MakeLifecycleActivity" />
+        <activity android:name=".MakeTaskActivity" />
         <activity
-            android:name=".DetailProject"
-            android:parentActivityName=".Home" />
+            android:name=".DetailProjectActivity"
+            android:parentActivityName=".HomeActivity" />
         <activity
             android:name=".MakeProject"
-            android:parentActivityName=".Home" />
-        <activity android:name=".Home" />
+            android:parentActivityName=".HomeActivity" />
+        <activity android:name=".HomeActivity" />
         <activity
-            android:name=".ForgotPassword"
-            android:parentActivityName=".Register" />
+            android:name=".ForgotPasswordActivity"
+            android:parentActivityName=".RegisterActivity" />
         <activity
-            android:name=".Register"
+            android:name=".RegisterActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".Login"
+            android:name=".LoginActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".Launcher">
+        <activity android:name=".LauncherActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

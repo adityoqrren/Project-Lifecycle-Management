@@ -6,40 +6,42 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
 import id.interconnect.projectlifecyclemanagement.dataclass.Dataflow
 import id.interconnect.projectlifecyclemanagement.dataclass.Usecase
-import kotlinx.android.synthetic.main.activity_make_architecture.*
-import kotlinx.android.synthetic.main.add_desc_item.*
+import kotlinx.android.synthetic.main.activity_make_lifecycle.*
 import kotlinx.android.synthetic.main.add_desc_item.view.*
 import kotlinx.android.synthetic.main.toolbar_blank.*
 
-class MakeArchitecture : AppCompatActivity() {
-    lateinit var MyListDescription : ArrayList<String>
+class MakeLifecycleActivity : AppCompatActivity() {
+    lateinit var myListDescription : ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_make_architecture)
-        MyListDescription = ArrayList()
+        setContentView(R.layout.activity_make_lifecycle)
+        myListDescription = ArrayList()
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        toolbar.setNavigationOnClickListener { onBackPressed() }
 
-        makeArchi_main_title.text = intent?.getStringExtra("makeIndicator")
+        if(intent.hasExtra("makeIndicator")){
+            makeArchi_main_title.text = intent?.getStringExtra("makeIndicator")
+        }else{
+            makeArchi_main_title.text = intent?.getStringExtra("editIndicator")
+        }
 
         makeArchi_btn_plus_desc.setOnClickListener {
             addView()
         }
 
         makeArchi_btn_save.setOnClickListener {
-            if(intent.getStringExtra("makeIndicator")=="Usecase"){
+            if(intent.getStringExtra("makeIndicator")=="Usecase"||intent.getStringExtra("editIndicator")=="Usecase"){
                 val intent = Intent(this,UsecaseActivity::class.java)
                 intent.putExtra("dataUsecase",Usecase(1,makeArchi_desc.text.toString()))
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                 startActivity(intent)
-            }else if(intent.getStringExtra("makeIndicator")=="Dataflow"){
+            }else if(intent.getStringExtra("makeIndicator")=="Dataflow"||intent.getStringExtra("editIndicator")=="Dataflow"){
                 val intent = Intent(this,DataflowActivity::class.java)
                 intent.putExtra("dataDataflow",Dataflow(1,makeArchi_desc.text.toString()))
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -63,7 +65,7 @@ class MakeArchitecture : AppCompatActivity() {
                     getData()
                 }
             }
-            Log.d("data list : ",MyListDescription.toString())
+            Log.d("data list : ",myListDescription.toString())
         }
     }
 
@@ -72,10 +74,10 @@ class MakeArchitecture : AppCompatActivity() {
     }
 
     private fun getData(){
-        MyListDescription.clear()
+        myListDescription.clear()
         for(x in 0 until makeArchi_desc_layout.childCount){
             val v = makeArchi_desc_layout.getChildAt(x)
-            MyListDescription.add(v.makeArchi_itemDesc_edit.text.toString())
+            myListDescription.add(v.makeArchi_itemDesc_edit.text.toString())
         }
     }
 }

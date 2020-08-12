@@ -1,8 +1,8 @@
 package id.interconnect.projectlifecyclemanagement
 
-import Api.Result
-import Api.TextIndicatorAPI
-import android.content.Intent
+import android.app.Activity
+import id.interconnect.projectlifecyclemanagement.Api.Result
+import id.interconnect.projectlifecyclemanagement.Api.TextIndicatorAPI
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,14 +12,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.interconnect.projectlifecyclemanagement.Adapter.MemberRVAdapter
 import id.interconnect.projectlifecyclemanagement.dataclass.Member
-import id.interconnect.projectlifecyclemanagement.dataclass.Project
 import id.interconnect.projectlifecyclemanagement.lifecycle.MyViewModel
 import id.interconnect.projectlifecyclemanagement.uicomponent.MakeProjectDialogFragment
 import kotlinx.android.synthetic.main.activity_make_project.*
 
 class MakeProject : AppCompatActivity(), MakeProjectDialogFragment.MyDialogListener, MemberRVAdapter.itemOnClick {
     private var myMemberList = ArrayList<Member>()
-    lateinit var memberAdapter : MemberRVAdapter
+    private lateinit var memberAdapter : MemberRVAdapter
 
     private lateinit var myViewModel: MyViewModel
 
@@ -56,15 +55,20 @@ class MakeProject : AppCompatActivity(), MakeProjectDialogFragment.MyDialogListe
                         dataReceived ->
                         when(dataReceived){
                             is Result.Success ->{
-                                if(dataReceived.data.message == "Success"){
+                                if(dataReceived.data.status == TextIndicatorAPI.textSuccess){
                                     Toast.makeText(this,"Success creating new Project $nameProject",Toast.LENGTH_LONG).show()
+//                                    val intent = Intent(this,HomeActivity::class.java)
+//                                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                                    setResult(Activity.RESULT_OK)
                                     finish()
                                 }else{
                                     Toast.makeText(this,"Wrong Input. Check Again!",Toast.LENGTH_LONG).show()
+                                    setResult(Activity.RESULT_CANCELED)
                                 }
                             }
                             is Result.Error->{
-                                Toast.makeText(this,TextIndicatorAPI.textErrorInput,Toast.LENGTH_LONG).show()
+                                Toast.makeText(this,TextIndicatorAPI.textServerProblem,Toast.LENGTH_LONG).show()
+                                setResult(Activity.RESULT_CANCELED)
                             }
                         }
                     })
@@ -72,8 +76,6 @@ class MakeProject : AppCompatActivity(), MakeProjectDialogFragment.MyDialogListe
                 if(myMemberList.size>0){
 
                 }
-                startActivity(intent)
-                finish()
             } else {
                 Toast.makeText(this, "Please fill all the form", Toast.LENGTH_SHORT).show()
                 if(nameProject.isEmpty()){

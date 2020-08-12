@@ -5,10 +5,11 @@ import android.os.Bundle
 import android.view.View
 import id.interconnect.projectlifecyclemanagement.uicomponent.DatePickerFragment
 import kotlinx.android.synthetic.main.activity_make_task.*
+import kotlinx.android.synthetic.main.toolbar_blank.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MakeTask : AppCompatActivity(),View.OnClickListener, DatePickerFragment.DialogDateListener {
+class MakeTaskActivity : AppCompatActivity(),View.OnClickListener, DatePickerFragment.DialogDateListener {
 
     lateinit var calendar_dateStart:Calendar
     lateinit var calendar_dateEnd:Calendar
@@ -22,9 +23,10 @@ class MakeTask : AppCompatActivity(),View.OnClickListener, DatePickerFragment.Di
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_make_task)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        toolbar.setNavigationOnClickListener { onBackPressed() }
 
         maketask_startDate_input.setOnClickListener(this)
         maketask_endDate_input.setOnClickListener(this)

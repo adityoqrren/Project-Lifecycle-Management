@@ -31,7 +31,7 @@ class DataflowActivity : AppCompatActivity() , DataflowRVAdapter.ItemOnClick {
 
         //fab_make_usecase ke activity create menggunakan make architecture
         fab_dataflow.setOnClickListener {
-            val intent = Intent(this, MakeArchitecture::class.java)
+            val intent = Intent(this, MakeLifecycleActivity::class.java)
             intent.putExtra("makeIndicator","Dataflow")
             startActivity(intent)
         }

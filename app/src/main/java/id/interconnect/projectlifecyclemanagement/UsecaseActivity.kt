@@ -36,7 +36,7 @@ class UsecaseActivity : AppCompatActivity(), UsecaseRVAdapter.ItemOnClick {
 
         //fab_make_usecase ke activity create menggunakan make architecture
         fab_usecase.setOnClickListener {
-            val intent = Intent(this, MakeArchitecture::class.java)
+            val intent = Intent(this, MakeLifecycleActivity::class.java)
             intent.putExtra("makeIndicator","Usecase")
             startActivity(intent)
         }

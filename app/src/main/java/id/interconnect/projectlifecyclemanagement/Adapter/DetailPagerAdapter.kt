@@ -1,6 +1,7 @@
 package id.interconnect.projectlifecyclemanagement.Adapter
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -16,7 +17,7 @@ class DetailPagerAdapter(private val context: Context, fm:FragmentManager) : Fra
         R.string.title_tab_detail_1,
         R.string.title_tab_detail_2
     )
-    lateinit var project: Project
+    var project: Project? = null
 
     override fun getItem(position: Int): Fragment {
         var fragment: Fragment? = null
@@ -24,7 +25,7 @@ class DetailPagerAdapter(private val context: Context, fm:FragmentManager) : Fra
             0->{
                 fragment =
                     fragment_detail.newInstance(
-                        project
+                        project as Project
                     )
             }
             1->{fragment =

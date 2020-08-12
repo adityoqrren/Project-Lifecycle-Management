@@ -1,4 +1,4 @@
-package Api
+package id.interconnect.projectlifecyclemanagement.Api
 
 import android.util.Log
 import id.interconnect.projectlifecyclemanagement.dataclass.*
@@ -24,11 +24,7 @@ class ApiRepository {
             .build()
         return try {
             val res = postApiInterface.userRegistration(body)
-//            if (res.status == "success") {
                 Result.Success(res)
-//            } else {
-//                Result.Error(IllegalArgumentException("Not success"))
-//            }
         } catch (e: Exception) {
             Log.d("Errornya","errornya disini : ${e.toString()}")
             Result.Error(e)
@@ -39,7 +35,7 @@ class ApiRepository {
         val body = MultipartBody.Builder()
             .setType(MultipartBody.FORM)
             .addFormDataPart("email", email)
-            .addFormDataPart("name", password)
+            .addFormDataPart("password", password)
             .build()
 
         return try {
@@ -90,11 +86,7 @@ class ApiRepository {
             .build()
         return try {
             val res = postApiInterface.projectCreate(body)
-            if (res.status == "success") {
-                Result.Success(res)
-            } else {
-                Result.Error(IllegalArgumentException("Not success"))
-            }
+            Result.Success(res)
         } catch (e: Exception) {
             Result.Error(e)
         }
