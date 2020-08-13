@@ -167,7 +167,7 @@ class fragment_home : Fragment(), ProjectRVAdapter.ItemOnClick {
 
     override fun onClickNext(userLoginProjects: UserLoginProjects) {
         val intent = Intent(activity, DetailProjectActivity::class.java)
-        intent.putExtra("to_fragment_detail",userLoginProjects.project)
+        intent.putExtra("to_fragment_detail",userLoginProjects)
         startActivity(intent)
     }
 

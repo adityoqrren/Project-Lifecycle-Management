@@ -41,23 +41,23 @@ class PageLifecycle : AppCompatActivity() {
             add(ArchitectureDescription("5","hdgcybfbuvbybyfhbvbhbvhbyugbvcubufcvbu5"))
         }
 
-        val dummy_Role = DEVELOPER
+//        val dummy_Role = DEVELOPER
 
         descItemAdapter = DescItemAdapter()
         pageArchi_RV.layoutManager = LinearLayoutManager(this)
         pageArchi_RV.adapter = descItemAdapter
         descItemAdapter.setlistMember(dummyItemDescription)
 
-        if(dummy_Role == MANAGER){
+        if(DetailProjectActivity.roleInProject == 1){
             pageLif_btn_edit.text  = ACCEPT
             pageLif_btn_delete.text = DECLINE
-        }else if(dummy_Role == CLIENT){
+        }else if(DetailProjectActivity.roleInProject == 3){
             pageLif_btn_edit.visibility = View.GONE
             pageLif_btn_delete.visibility = View.GONE
         }
 
         pageLif_btn_edit.setOnClickListener {
-            if(dummy_Role == DEVELOPER){
+            if(DetailProjectActivity.roleInProject == 2){
                 val intent = Intent(this,MakeLifecycleActivity::class.java)
                 intent.putExtra("editIndicator",pageIndicator)
                 startActivity(intent)

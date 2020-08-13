@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils
 import androidx.viewpager.widget.ViewPager
 import id.interconnect.projectlifecyclemanagement.Adapter.DetailPagerAdapter
 import id.interconnect.projectlifecyclemanagement.dataclass.Project
+import id.interconnect.projectlifecyclemanagement.dataclass.UserLoginProjects
 import kotlinx.android.synthetic.main.activity_detail_project.*
 
 
@@ -18,11 +19,16 @@ class DetailProjectActivity : AppCompatActivity(),View.OnClickListener {
     lateinit var fabOpen : Animation
     lateinit var fabClose : Animation
 
+    companion object{
+        var roleInProject = 1
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_project)
 
-        project = intent.getParcelableExtra("to_fragment_detail") as Project
+        project = intent.getParcelableExtra<UserLoginProjects>("to_fragment_detail").project
+//        roleInProject = intent.getParcelableExtra<UserLoginProjects>("to_fragment_detail").position.toInt()
 
         setSupportActionBar(detail_toolbar_elevated)
         supportActionBar?.title = project.project_name
