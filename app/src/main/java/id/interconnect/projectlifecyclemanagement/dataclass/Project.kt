@@ -7,5 +7,7 @@ import kotlinx.android.parcel.Parcelize
 data class Project (
     val id_project:String ="",
     val project_name:String = "",
-    val description:String = ""
+    val description:String = "",
+    val role_project:String = "",
+    val id_role: String = ""
 ):Parcelable

@@ -57,8 +57,6 @@ class MakeProject : AppCompatActivity(), MakeProjectDialogFragment.MyDialogListe
                             is Result.Success ->{
                                 if(dataReceived.data.status == TextIndicatorAPI.textSuccess){
                                     Toast.makeText(this,"Success creating new Project $nameProject",Toast.LENGTH_LONG).show()
-//                                    val intent = Intent(this,HomeActivity::class.java)
-//                                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
                                     setResult(Activity.RESULT_OK)
                                     finish()
                                 }else{

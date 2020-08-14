@@ -16,9 +16,9 @@ class PageLifecycle : AppCompatActivity() {
     lateinit var descItemAdapter: DescItemAdapter
 
     companion object{
-        private const val MANAGER = "manager"
-        private const val DEVELOPER = "developer"
-        private const val CLIENT = "client"
+        private const val MANAGER = 1
+        private const val DEVELOPER = 2
+        private const val CLIENT = 3
         private const val ACCEPT = "Accept"
         private const val DECLINE = "Decline"
     }
@@ -48,23 +48,25 @@ class PageLifecycle : AppCompatActivity() {
         pageArchi_RV.adapter = descItemAdapter
         descItemAdapter.setlistMember(dummyItemDescription)
 
-        if(DetailProjectActivity.roleInProject == 1){
-            pageLif_btn_edit.text  = ACCEPT
-            pageLif_btn_delete.text = DECLINE
-        }else if(DetailProjectActivity.roleInProject == 3){
-            pageLif_btn_edit.visibility = View.GONE
-            pageLif_btn_delete.visibility = View.GONE
-        }
+        //ROLE (uncomment kalau role sudah bisa didapatkan di projects saat login)
 
-        pageLif_btn_edit.setOnClickListener {
-            if(DetailProjectActivity.roleInProject == 2){
-                val intent = Intent(this,MakeLifecycleActivity::class.java)
-                intent.putExtra("editIndicator",pageIndicator)
-                startActivity(intent)
-            }else{
-
-            }
-        }
+//        if(DetailProjectActivity.roleInProject == MANAGER){
+//            pageLif_btn_edit.text  = ACCEPT
+//            pageLif_btn_delete.text = DECLINE
+//        }else if(DetailProjectActivity.roleInProject == CLIENT){
+//            pageLif_btn_edit.visibility = View.GONE
+//            pageLif_btn_delete.visibility = View.GONE
+//        }
+//
+//        pageLif_btn_edit.setOnClickListener {
+//            if(DetailProjectActivity.roleInProject == DEVELOPER){
+//                val intent = Intent(this,MakeLifecycleActivity::class.java)
+//                intent.putExtra("editIndicator",pageIndicator)
+//                startActivity(intent)
+//            }else{
+//
+//            }
+//        }
 
     }
 }

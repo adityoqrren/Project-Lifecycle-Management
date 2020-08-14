@@ -18,12 +18,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
         home_BottomNav.setOnNavigationItemSelectedListener(navBottom)
 
-//        val dataReceived = intent.getParcelableExtra<UserLoginData>("dataProject")
-//        if(dataReceived!=null){
-//            fragmentHome = fragment_home.newInstance(dataReceived)
-//        }else{
-            fragmentHome = fragment_home()
-//        }
+        fragmentHome = fragment_home()
 
         addFragment(fragmentHome)
 

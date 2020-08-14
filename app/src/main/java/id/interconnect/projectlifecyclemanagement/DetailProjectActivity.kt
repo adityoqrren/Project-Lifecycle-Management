@@ -27,8 +27,9 @@ class DetailProjectActivity : AppCompatActivity(),View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_project)
 
-        project = intent.getParcelableExtra<UserLoginProjects>("to_fragment_detail").project
-//        roleInProject = intent.getParcelableExtra<UserLoginProjects>("to_fragment_detail").position.toInt()
+        project = intent.getParcelableExtra("to_fragment_detail") as Project
+        //ROLE (uncomment kalau role sudah bisa didapatkan di projects saat login)
+//        roleInProject = project.id_role.toInt()
 
         setSupportActionBar(detail_toolbar_elevated)
         supportActionBar?.title = project.project_name

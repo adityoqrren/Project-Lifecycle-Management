@@ -37,17 +37,6 @@ class fragment_home : Fragment(), ProjectRVAdapter.ItemOnClick {
 
     companion object{
         const val MAKE_PROJECT = 100
-//         listProject as static variable avoid data to change (as database)
-//         private var listProject = ArrayList<Project>()
-//        private const val ARG_PROJECT = "DATA PROJECT"
-//
-//        fun newInstance(userLoginData: UserLoginData) : Fragment{
-//            val fragmentHome = fragment_home()
-//            val bundle = Bundle()
-//            bundle.putParcelable(ARG_PROJECT,userLoginData)
-//            fragmentHome.arguments = bundle
-//            return fragmentHome
-//        }
     }
 
     override fun onCreateView(
@@ -79,18 +68,6 @@ class fragment_home : Fragment(), ProjectRVAdapter.ItemOnClick {
             startActivityForResult(intent, MAKE_PROJECT)
         }
 
-//        if(arguments!=null){
-////            val project_received = arguments?.getParcelable<UserLoginData>(ARG_PROJECT)
-////            //periksa data apakah arraylist null atau ada isinya
-////            if(project_received!!.projects == null){
-////                showIconBigTitle()
-////            }else{
-////                projectAdapter.setData(project_received.projects as ArrayList<UserLoginProjects>)
-////                hideIconBigTitle()
-////            }
-////        }else{
-////            showIconBigTitle()
-////        }
         myUserPreferences = UserPreferences(activity!!)
         myViewModel = ViewModelProvider(this)[MyViewModel::class.java]
 //        Log.d("user preferences ","email : ${myUserPreferences.getUser()} password: ${myUserPreferences.getPass()}")
@@ -167,7 +144,7 @@ class fragment_home : Fragment(), ProjectRVAdapter.ItemOnClick {
 
     override fun onClickNext(userLoginProjects: UserLoginProjects) {
         val intent = Intent(activity, DetailProjectActivity::class.java)
-        intent.putExtra("to_fragment_detail",userLoginProjects)
+        intent.putExtra("to_fragment_detail",userLoginProjects.project)
         startActivity(intent)
     }
 
