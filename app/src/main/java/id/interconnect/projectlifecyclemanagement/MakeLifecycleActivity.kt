@@ -27,6 +27,9 @@ class MakeLifecycleActivity : AppCompatActivity() {
 
         if(intent.hasExtra("makeIndicator")){
             makeArchi_main_title.text = intent?.getStringExtra("makeIndicator")
+            when(intent.getStringExtra("makeIndicator")){
+                "Architecture" -> makeArchi_layoutDesc.hint
+            }
         }else{
             makeArchi_main_title.text = intent?.getStringExtra("editIndicator")
         }
@@ -45,6 +48,11 @@ class MakeLifecycleActivity : AppCompatActivity() {
                 val intent = Intent(this,DataflowActivity::class.java)
                 intent.putExtra("dataDataflow",Dataflow(1,makeArchi_desc.text.toString()))
                 intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                startActivity(intent)
+            }else{
+                val intent = Intent(this,PageLifecycle::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                intent.putExtra("pageIndicator","Architecture")
                 startActivity(intent)
             }
             finish()

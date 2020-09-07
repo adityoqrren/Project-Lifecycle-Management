@@ -12,6 +12,4 @@
 /captures
 .externalNativeBuild
 .cxx
-/app/src/main/res/layout/activity_launcher.xml
-/app/src/main/java/id.interconnect.projectlifecyclemanagement.Api/ApiClient.kt
 '.idea' 

@@ -87,4 +87,6 @@
     <string name="no_project">No Project</string>
     <string name="home_longtext_no_project">Create your team\'s Lifecycle Management Project or get a lifecycle management project invitation from your team</string>
     <string name="md_example_2words">MD</string>
+    <string name="home">Home</string>
+    <string name="account">Account</string>
 </resources>

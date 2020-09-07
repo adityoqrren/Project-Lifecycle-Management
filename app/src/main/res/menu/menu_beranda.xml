@@ -4,10 +4,10 @@
     <item
         android:icon="@drawable/ic_home_black_24dp"
         android:id="@+id/menu_beranda"
-        android:title="Beranda"
+        android:title="@string/home"
         app:showAsAction="ifRoom"/>
     <item
         android:icon="@drawable/ic_account_outlined"
         android:id="@+id/menu_akun"
-        android:title="Akun"/>
+        android:title="@string/account"/>
 </menu>

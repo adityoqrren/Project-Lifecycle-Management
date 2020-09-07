@@ -29,6 +29,7 @@ class PageLifecycle : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        toolbar.setNavigationOnClickListener { onBackPressed() }
 
         val pageIndicator = intent.getStringExtra("pageIndicator")
         pageLif_main_title.text = pageIndicator
